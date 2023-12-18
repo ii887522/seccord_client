@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:seccord_client/pages/user/login_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -7,7 +8,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Seccord',
+      onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
       theme: ThemeData(
         useMaterial3: false,
         // Light color scheme generated from https://m3.material.io/theme-builder#/custom
@@ -82,6 +83,8 @@ class MyApp extends StatelessWidget {
           scrim: Color(0xFF000000),
         ),
       ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       home: const LoginPage(),
     );
   }

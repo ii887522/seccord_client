@@ -8,18 +8,22 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveScaffold(
-      body: Builder(builder: (context) {
-        return Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [Colors.white, Color(0xFFC0C0C0)],
+      body: Builder(
+        builder: (context) {
+          return SafeArea(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.white, Color(0xFFC0C0C0)],
+                ),
+              ),
+              child: const Column(children: [SizedBox(height: 160), Logo()]),
             ),
-          ),
-          child: const Column(children: [SizedBox(height: 160), Logo()]),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }
