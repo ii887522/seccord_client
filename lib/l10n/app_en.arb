@@ -3,5 +3,9 @@
   "title": "Seccord",
   "emailAddr": "Email address",
   "emailAddrEmptyErrMsg": "Email address is required",
-  "emailAddrInvalidErrMsg": "Email address is invalid"
+  "emailAddrInvalidErrMsg": "Email address is invalid",
+  "password": "Password",
+  "passwordEmptyErrMsg": "Password is required",
+  "showPassword": "Show password",
+  "hidePassword": "Hide password"
 }
