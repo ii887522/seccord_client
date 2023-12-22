@@ -7,5 +7,8 @@
   "password": "Password",
   "passwordEmptyErrMsg": "Password is required",
   "showPassword": "Show password",
-  "hidePassword": "Hide password"
+  "hidePassword": "Hide password",
+  "forgotPasswordLink": "I forgot my password ",
+  "login": "Login",
+  "signUp": "Sign up for an account"
 }

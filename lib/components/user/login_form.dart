@@ -3,6 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/models/user/login.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -22,6 +23,7 @@ class _LoginFormState extends State<LoginForm> {
       model: const Login(),
       builder: (context, formModel, child) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ReactiveTextField(
               formControl: formModel.emailAddrControl,
@@ -109,6 +111,59 @@ class _LoginFormState extends State<LoginForm> {
                     setState(() => revealPassword = !revealPassword);
                   },
                 ),
+              ),
+            ),
+            SizedBox(height: context.spacing.s),
+            Padding(
+              padding: const EdgeInsets.only(left: 40),
+              child: InkWell(
+                child: RichText(
+                  text: TextSpan(
+                    text: localizations.forgotPasswordLink,
+                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                          color: Theme.of(context).colorScheme.primary,
+                          decoration: TextDecoration.underline,
+                        ),
+                    children: const [
+                      TextSpan(
+                        text: '🥹',
+                        style: TextStyle(decoration: TextDecoration.none),
+                      )
+                    ],
+                  ),
+                ),
+                onTap: () {
+                  // TODO: Navigate to forgot password page
+                },
+              ),
+            ),
+            SizedBox(height: context.spacing.xxl),
+            ReactiveLoginFormConsumer(
+              builder: (context, formModel, child) {
+                return Center(
+                  child: ElevatedButton.icon(
+                    icon: const Icon(Icons.login),
+                    label: Text(localizations.login),
+                    onPressed: () {
+                      if (!formModel.form.valid) return;
+
+                      // TODO: Perform login operation
+                    },
+                  ),
+                );
+              },
+            ),
+            SizedBox(height: context.spacing.m),
+            Center(
+              child: ElevatedButton.icon(
+                icon: const Icon(Icons.app_registration),
+                label: Text(localizations.signUp),
+                style: const ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(Colors.green),
+                ),
+                onPressed: () {
+                  // TODO: Perform login operation
+                },
               ),
             ),
           ],

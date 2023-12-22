@@ -12,22 +12,28 @@ class LoginPage extends StatelessWidget {
       body: Builder(
         builder: (context) {
           return SafeArea(
-            child: Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Colors.white, Color(0xFFC0C0C0)],
+            child: SingleChildScrollView(
+              child: Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [Colors.white, Color(0xFFC0C0C0)],
+                  ),
                 ),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(context.spacing.l),
-                child: Column(children: [
-                  const SizedBox(height: 160),
-                  const Logo(),
-                  SizedBox(height: context.spacing.xxl),
-                  const LoginForm(),
-                ]),
+                height: MediaQuery.of(context).size.height -
+                    MediaQuery.of(context).padding.top,
+                child: Padding(
+                  padding: EdgeInsets.all(context.spacing.l),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 160),
+                      const Logo(),
+                      SizedBox(height: context.spacing.xxl),
+                      const LoginForm(),
+                    ],
+                  ),
+                ),
               ),
             ),
           );
