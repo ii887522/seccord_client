@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/models/user/login.dart';
@@ -133,7 +134,7 @@ class _LoginFormState extends State<LoginForm> {
                   ),
                 ),
                 onTap: () {
-                  // TODO: Navigate to forgot password page
+                  context.push('/user/forgot-password');
                 },
               ),
             ),
@@ -162,7 +163,7 @@ class _LoginFormState extends State<LoginForm> {
                   backgroundColor: MaterialStatePropertyAll(Colors.green),
                 ),
                 onPressed: () {
-                  // TODO: Perform login operation
+                  // TODO: Navigate to sign up page
                 },
               ),
             ),
