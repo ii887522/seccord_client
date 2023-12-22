@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
+import 'package:seccord_client/components/user/login_form.dart';
 import 'package:seccord_client/components/user/logo.dart';
 
 class LoginPage extends StatelessWidget {
@@ -19,7 +20,15 @@ class LoginPage extends StatelessWidget {
                   colors: [Colors.white, Color(0xFFC0C0C0)],
                 ),
               ),
-              child: const Column(children: [SizedBox(height: 160), Logo()]),
+              child: Padding(
+                padding: EdgeInsets.all(context.spacing.l),
+                child: Column(children: [
+                  const SizedBox(height: 160),
+                  const Logo(),
+                  SizedBox(height: context.spacing.xxl),
+                  const LoginForm(),
+                ]),
+              ),
             ),
           );
         },

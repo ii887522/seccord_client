@@ -1,4 +1,7 @@
 {
   "@@locale": "en",
-  "title": "Seccord"
+  "title": "Seccord",
+  "emailAddr": "Email address",
+  "emailAddrEmptyErrMsg": "Email address is required",
+  "emailAddrInvalidErrMsg": "Email address is invalid"
 }
