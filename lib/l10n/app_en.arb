@@ -10,5 +10,7 @@
   "hidePassword": "Hide password",
   "forgotPasswordLink": "I forgot my password ",
   "login": "Login",
-  "signUp": "Sign up for an account"
+  "signUp": "Sign up for an account",
+  "backToLogin": "<- Back to login",
+  "requestResetPassword": "Request to reset my password"
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
-import 'package:seccord_client/components/user/login_form.dart';
+import 'package:seccord_client/components/user/forgot_password_form.dart';
 import 'package:seccord_client/components/user/logo.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -30,7 +30,7 @@ class ForgotPasswordPage extends StatelessWidget {
                       const SizedBox(height: 160),
                       const Logo(),
                       SizedBox(height: context.spacing.xxl),
-                      const LoginForm(),
+                      const ForgotPasswordForm(),
                     ],
                   ),
                 ),

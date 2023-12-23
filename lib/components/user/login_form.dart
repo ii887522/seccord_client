@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/models/user/login.dart';
+import 'package:simple_shadow/simple_shadow.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -132,9 +133,7 @@ class _LoginFormState extends State<LoginForm> {
                     ],
                   ),
                 ),
-                onTap: () {
-                  context.push('/user/forgot-password');
-                },
+                onTap: () => context.push('/user/forgot-password'),
               ),
             ),
             SizedBox(height: context.spacing.xxl),
