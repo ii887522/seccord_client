@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/models/user/login.dart';
-import 'package:simple_shadow/simple_shadow.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -15,6 +14,10 @@ class LoginForm extends StatefulWidget {
 
 class _LoginFormState extends State<LoginForm> {
   var revealPassword = false;
+
+  void submit() {
+    // TODO: Perform login operation
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,11 +146,7 @@ class _LoginFormState extends State<LoginForm> {
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.login),
                     label: Text(localizations.login),
-                    onPressed: () {
-                      if (!formModel.form.valid) return;
-
-                      // TODO: Perform login operation
-                    },
+                    onPressed: formModel.form.valid ? submit : null,
                   ),
                 );
               },

@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:seccord_client/pages/user/email_verification_page.dart';
 import 'package:seccord_client/pages/user/forgot_password_page.dart';
 import 'package:seccord_client/pages/user/login_page.dart';
 import 'package:go_router/go_router.dart';
 
-Page<dynamic> Function(BuildContext, GoRouterState) _pageBuilder(Widget child) {
+Page<dynamic> Function(BuildContext, GoRouterState) _pageBuilder(
+  Widget Function(GoRouterState) builder,
+) {
   return (context, state) {
     return CustomTransitionPage(
       key: state.pageKey,
-      child: child,
+      child: builder(state),
       barrierColor: Colors.black54,
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         return SlideTransition(
@@ -33,7 +36,15 @@ final router = GoRouter(
     ),
     GoRoute(
       path: '/user/forgot-password',
-      pageBuilder: _pageBuilder(const ForgotPasswordPage()),
+      pageBuilder: _pageBuilder((state) => const ForgotPasswordPage()),
+    ),
+    GoRoute(
+      path: '/user/email-verification/:emailAddr',
+      pageBuilder: _pageBuilder(
+        (state) => EmailVerificationPage(
+          emailAddr: state.pathParameters['emailAddr'] ?? '',
+        ),
+      ),
     ),
   ],
 );

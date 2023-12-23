@@ -8,6 +8,10 @@ import 'package:seccord_client/models/user/forgot_password.dart';
 class ForgotPasswordForm extends StatelessWidget {
   const ForgotPasswordForm({super.key});
 
+  void _submit(BuildContext context, ForgotPassword model) {
+    context.pushReplacement('/user/email-verification/${model.emailAddr}');
+  }
+
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
@@ -61,14 +65,12 @@ class ForgotPasswordForm extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 40),
               child: InkWell(
-                child: RichText(
-                  text: TextSpan(
-                    text: localizations.backToLogin,
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: Theme.of(context).colorScheme.primary,
-                          decoration: TextDecoration.underline,
-                        ),
-                  ),
+                child: Text(
+                  localizations.backToLogin,
+                  style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                        decoration: TextDecoration.underline,
+                      ),
                 ),
                 onTap: () => context.pop(),
               ),
@@ -80,17 +82,21 @@ class ForgotPasswordForm extends StatelessWidget {
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.restart_alt),
                     label: Text(localizations.requestResetPassword),
-                    style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(
-                        Color(0xFFC0C000),
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.resolveWith(
+                        (states) => states.contains(MaterialState.disabled)
+                            ? null
+                            : const Color(0xFFC0C000),
                       ),
-                      foregroundColor: MaterialStatePropertyAll(Colors.black),
+                      foregroundColor: MaterialStateProperty.resolveWith(
+                        (states) => states.contains(MaterialState.disabled)
+                            ? null
+                            : Colors.black,
+                      ),
                     ),
-                    onPressed: () {
-                      if (!formModel.form.valid) return;
-
-                      // TODO: Send reset password request
-                    },
+                    onPressed: formModel.form.valid
+                        ? () => _submit(context, formModel.model)
+                        : null,
                   ),
                 );
               },

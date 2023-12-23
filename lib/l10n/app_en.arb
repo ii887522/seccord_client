@@ -12,5 +12,8 @@
   "login": "Login",
   "signUp": "Sign up for an account",
   "backToLogin": "<- Back to login",
-  "requestResetPassword": "Request to reset my password"
+  "requestResetPassword": "Request to reset my password",
+  "verificationCode": "Verification code",
+  "verificationCodeEmptyErrMsg": "Verification code is required",
+  "verificationCodeHint": "A verification code has been sent to your email address. Please check your email."
 }
