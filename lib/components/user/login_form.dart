@@ -151,19 +151,6 @@ class _LoginFormState extends State<LoginForm> {
                 );
               },
             ),
-            SizedBox(height: context.spacing.m),
-            Center(
-              child: ElevatedButton.icon(
-                icon: const Icon(Icons.app_registration),
-                label: Text(localizations.signUp),
-                style: const ButtonStyle(
-                  backgroundColor: MaterialStatePropertyAll(Colors.green),
-                ),
-                onPressed: () {
-                  // TODO: Navigate to sign up page
-                },
-              ),
-            ),
           ],
         );
       },

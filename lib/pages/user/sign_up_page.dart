@@ -1,12 +1,11 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:go_router/go_router.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
-import 'package:seccord_client/components/user/login_form.dart';
 import 'package:seccord_client/components/user/logo.dart';
+import 'package:seccord_client/components/user/sign_up_form.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +22,11 @@ class LoginPage extends StatelessWidget {
                     colors: [Colors.white, Color(0xFFC0C0C0)],
                   ),
                 ),
-                height: MediaQuery.of(context).size.height -
-                    MediaQuery.of(context).padding.top,
+                height: max(
+                  MediaQuery.of(context).size.height -
+                      MediaQuery.of(context).padding.top,
+                  902, // Max height of the Padding child below
+                ),
                 child: Padding(
                   padding: EdgeInsets.all(context.spacing.l),
                   child: Column(
@@ -32,20 +34,7 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(height: 160),
                       const Logo(),
                       SizedBox(height: context.spacing.xxl),
-                      const LoginForm(),
-                      SizedBox(height: context.spacing.m),
-                      Center(
-                        child: ElevatedButton.icon(
-                          icon: const Icon(Icons.app_registration),
-                          label: Text(AppLocalizations.of(context)!.signUp),
-                          style: const ButtonStyle(
-                            backgroundColor: MaterialStatePropertyAll(
-                              Colors.green,
-                            ),
-                          ),
-                          onPressed: () => context.push('/user/sign-up'),
-                        ),
-                      ),
+                      const SignUpForm(),
                     ],
                   ),
                 ),

@@ -26,5 +26,8 @@
   "newPasswordNoDigitErrMsg": "New password must contain at least 1 digit",
   "newPasswordNoUppercaseLetterErrMsg": "New password must contain at least 1 uppercase letter",
   "newPasswordNoLowercaseLetterErrMsg": "New password must contain at least 1 lowercase letter",
-  "newPasswordNoSpecialCharErrMsg": "New password must contain at least 1 special character. Special character examples: '^ $ * . [ ] { } ( ) ? - \" ! @ # % & / \\ , > < '' : ; | _ ~ ` + ='"
+  "newPasswordNoSpecialCharErrMsg": "New password must contain at least 1 special character. Special character examples: '^ $ * . [ ] { } ( ) ? - \" ! @ # % & / \\ , > < '' : ; | _ ~ ` + ='",
+  "username": "Username",
+  "usernameEmptyErrMsg": "Username is required",
+  "signUpShort": "Sign up"
 }
