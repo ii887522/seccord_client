@@ -68,6 +68,7 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 filled: true,
                 fillColor: Colors.white,
+                isDense: true,
               ),
             ),
             SizedBox(height: context.spacing.xl),
@@ -117,6 +118,7 @@ class _LoginFormState extends State<LoginForm> {
                     setState(() => revealPassword = !revealPassword);
                   },
                 ),
+                isDense: true,
               ),
             ),
             SizedBox(height: context.spacing.s),

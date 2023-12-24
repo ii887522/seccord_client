@@ -62,6 +62,7 @@ class _EmailVerificationFormState extends State<EmailVerificationForm> {
                 ),
                 filled: true,
                 fillColor: Colors.white,
+                isDense: true,
               ),
               canRequestFocus: false,
               enableInteractiveSelection: false,
@@ -93,8 +94,8 @@ class _EmailVerificationFormState extends State<EmailVerificationForm> {
               formControl: formModel.verificationCodeControl,
               length: 6,
               defaultPinTheme: PinTheme(
-                width: 56,
-                height: 56,
+                width: 48,
+                height: 48,
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade700),
                   borderRadius: BorderRadius.circular(4),

@@ -61,6 +61,7 @@ class ForgotPasswordForm extends StatelessWidget {
                 ),
                 filled: true,
                 fillColor: Colors.white,
+                isDense: true,
               ),
             ),
             SizedBox(height: context.spacing.s),
