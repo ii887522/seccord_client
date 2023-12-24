@@ -15,8 +15,10 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   var revealPassword = false;
 
-  void submit() {
+  void submit(BuildContext context) {
     // TODO: Perform login operation
+
+    context.pushReplacement('/');
   }
 
   @override
@@ -146,7 +148,8 @@ class _LoginFormState extends State<LoginForm> {
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.login),
                     label: Text(localizations.login),
-                    onPressed: formModel.form.valid ? submit : null,
+                    onPressed:
+                        formModel.form.valid ? () => submit(context) : null,
                   ),
                 );
               },
