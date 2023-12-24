@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/components/user/email_verification_form.dart';
 import 'package:seccord_client/components/user/logo.dart';
+import 'package:seccord_client/models/user/email_verification_action.dart';
 
 class EmailVerificationPage extends StatelessWidget {
   final String emailAddr;
+  final EmailVerificationAction action;
 
-  const EmailVerificationPage({super.key, required this.emailAddr});
+  const EmailVerificationPage({
+    super.key,
+    required this.emailAddr,
+    this.action = EmailVerificationAction.none,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +38,10 @@ class EmailVerificationPage extends StatelessWidget {
                       const SizedBox(height: 160),
                       const Logo(),
                       SizedBox(height: context.spacing.xxl),
-                      EmailVerificationForm(emailAddr: emailAddr),
+                      EmailVerificationForm(
+                        emailAddr: emailAddr,
+                        action: action,
+                      ),
                     ],
                   ),
                 ),

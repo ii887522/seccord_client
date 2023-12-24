@@ -6,11 +6,17 @@ import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 import 'package:reactive_pinput/reactive_pinput.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/models/user/email_verification.dart';
+import 'package:seccord_client/models/user/email_verification_action.dart';
 
 class EmailVerificationForm extends StatefulWidget {
   final String emailAddr;
+  final EmailVerificationAction action;
 
-  const EmailVerificationForm({super.key, required this.emailAddr});
+  const EmailVerificationForm({
+    super.key,
+    required this.emailAddr,
+    this.action = EmailVerificationAction.none,
+  });
 
   @override
   State<EmailVerificationForm> createState() => _EmailVerificationFormState();
@@ -20,9 +26,17 @@ class _EmailVerificationFormState extends State<EmailVerificationForm> {
   late final model = EmailVerification(emailAddr: widget.emailAddr);
 
   void submit(String verificationCode) {
-    // TODO: Send reset password request
-
-    context.pushReplacement('/user/reset-password/${model.emailAddr}');
+    switch (widget.action) {
+      case EmailVerificationAction.requestResetPassword:
+        // TODO: Send reset password request
+        context.pushReplacement('/user/reset-password/${model.emailAddr}');
+        break;
+      case EmailVerificationAction.requestSignUp:
+        // TODO: Perform sign up operation
+        context.pop();
+      case EmailVerificationAction.none:
+        break;
+    }
   }
 
   @override

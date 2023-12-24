@@ -9,7 +9,9 @@ class ForgotPasswordForm extends StatelessWidget {
   const ForgotPasswordForm({super.key});
 
   void _submit(BuildContext context, ForgotPassword model) {
-    context.pushReplacement('/user/email-verification/${model.emailAddr}');
+    context.pushReplacement(
+      '/user/email-verification/${model.emailAddr}?onSubmit=requestResetPassword',
+    );
   }
 
   @override

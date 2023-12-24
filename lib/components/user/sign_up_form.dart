@@ -16,8 +16,10 @@ class SignUpForm extends StatefulWidget {
 class _SignUpFormState extends State<SignUpForm> {
   var revealPassword = false;
 
-  void submit() {
-    // TODO: Perform sign up operation
+  void submit(BuildContext context, SignUp model) {
+    context.pushReplacement(
+      '/user/email-verification/${model.emailAddr}?onSubmit=requestSignUp',
+    );
   }
 
   @override
@@ -243,7 +245,9 @@ class _SignUpFormState extends State<SignUpForm> {
                   child: ElevatedButton.icon(
                     icon: const Icon(Icons.app_registration),
                     label: Text(localizations.signUpShort),
-                    onPressed: formModel.form.valid ? submit : null,
+                    onPressed: formModel.form.valid
+                        ? () => submit(context, formModel.model)
+                        : null,
                   ),
                 );
               },

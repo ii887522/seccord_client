@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:seccord_client/models/user/email_verification_action.dart';
 import 'package:seccord_client/pages/user/email_verification_page.dart';
 import 'package:seccord_client/pages/user/forgot_password_page.dart';
 import 'package:seccord_client/pages/user/login_page.dart';
@@ -45,6 +46,9 @@ final router = GoRouter(
       pageBuilder: _pageBuilder(
         (state) => EmailVerificationPage(
           emailAddr: state.pathParameters['emailAddr'] ?? '',
+          action: EmailVerificationAction.from(
+            state.uri.queryParameters['onSubmit'],
+          ),
         ),
       ),
     ),
