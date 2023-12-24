@@ -1,30 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 import 'package:reactive_pinput/reactive_pinput.dart';
 import 'package:responsive_spacing/responsive_spacing.dart';
 import 'package:seccord_client/models/user/email_verification.dart';
 
-class EmailVerificationForm extends StatelessWidget {
+class EmailVerificationForm extends StatefulWidget {
   final String emailAddr;
 
   const EmailVerificationForm({super.key, required this.emailAddr});
+
+  @override
+  State<EmailVerificationForm> createState() => _EmailVerificationFormState();
+}
+
+class _EmailVerificationFormState extends State<EmailVerificationForm> {
+  late final model = EmailVerification(emailAddr: widget.emailAddr);
+
+  void submit(String verificationCode) {
+    // TODO: Send reset password request
+
+    context.pushReplacement('/user/reset-password/${model.emailAddr}');
+  }
 
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
 
     return EmailVerificationFormBuilder(
-      model: const EmailVerification(),
+      model: model,
       builder: (context, formModel, child) {
-        formModel.emailAddrControl.value = emailAddr;
-
         return Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ReactiveTextField(
               formControl: formModel.emailAddrControl,
               readOnly: true,
+              style: const TextStyle(color: Color(0xFF808080)),
               decoration: InputDecoration(
                 border: const OutlineInputBorder(),
                 icon: const Icon(Icons.mail),
@@ -35,6 +49,8 @@ class EmailVerificationForm extends StatelessWidget {
                 filled: true,
                 fillColor: Colors.white,
               ),
+              canRequestFocus: false,
+              enableInteractiveSelection: false,
             ),
             SizedBox(height: context.spacing.xl),
             Row(
@@ -81,12 +97,22 @@ class EmailVerificationForm extends StatelessWidget {
                 }
               },
               autofocus: true,
-              onCompleted: (value) {
-                // TODO: Send reset password request
-              },
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+              onCompleted: submit,
             ),
             SizedBox(height: context.spacing.s),
             Text(localizations.verificationCodeHint),
+            SizedBox(height: context.spacing.m),
+            InkWell(
+              child: Text(
+                localizations.backToLogin,
+                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
+                      color: Theme.of(context).colorScheme.primary,
+                      decoration: TextDecoration.underline,
+                    ),
+              ),
+              onTap: () => context.pop(),
+            ),
           ],
         );
       },

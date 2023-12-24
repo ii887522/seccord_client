@@ -15,5 +15,16 @@
   "requestResetPassword": "Request to reset my password",
   "verificationCode": "Verification code",
   "verificationCodeEmptyErrMsg": "Verification code is required",
-  "verificationCodeHint": "A verification code has been sent to your email address. Please check your email."
+  "verificationCodeHint": "A verification code has been sent to your email address. Please check your email.",
+  "resetPassword": "Reset my password",
+  "newPassword": "New password",
+  "retypeNewPassword": "Retype new password",
+  "newPasswordEmptyErrMsg": "New password is required",
+  "retypeNewPasswordEmptyErrMsg": "Retype new password is required",
+  "retypeNewPasswordDiffErrMsg": "Retype new password must be the same as new password",
+  "newPasswordShortErrMsg": "New password must have at least 8 characters",
+  "newPasswordNoDigitErrMsg": "New password must contain at least 1 digit",
+  "newPasswordNoUppercaseLetterErrMsg": "New password must contain at least 1 uppercase letter",
+  "newPasswordNoLowercaseLetterErrMsg": "New password must contain at least 1 lowercase letter",
+  "newPasswordNoSpecialCharErrMsg": "New password must contain at least 1 special character. Special character examples: '^ $ * . [ ] { } ( ) ? - \" ! @ # % & / \\ , > < '' : ; | _ ~ ` + ='"
 }

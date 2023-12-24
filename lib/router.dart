@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:seccord_client/pages/user/email_verification_page.dart';
 import 'package:seccord_client/pages/user/forgot_password_page.dart';
 import 'package:seccord_client/pages/user/login_page.dart';
-import 'package:go_router/go_router.dart';
+import 'package:seccord_client/pages/user/reset_password_page.dart';
 
 Page<dynamic> Function(BuildContext, GoRouterState) _pageBuilder(
   Widget Function(GoRouterState) builder,
@@ -42,6 +43,14 @@ final router = GoRouter(
       path: '/user/email-verification/:emailAddr',
       pageBuilder: _pageBuilder(
         (state) => EmailVerificationPage(
+          emailAddr: state.pathParameters['emailAddr'] ?? '',
+        ),
+      ),
+    ),
+    GoRoute(
+      path: '/user/reset-password/:emailAddr',
+      pageBuilder: _pageBuilder(
+        (state) => ResetPasswordPage(
           emailAddr: state.pathParameters['emailAddr'] ?? '',
         ),
       ),
