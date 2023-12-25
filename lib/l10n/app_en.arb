@@ -29,5 +29,7 @@
   "newPasswordNoSpecialCharErrMsg": "New password must contain at least 1 special character. Special character examples: '^ $ * . [ ] { } ( ) ? - \" ! @ # % & / \\ , > < '' : ; | _ ~ ` + ='",
   "username": "Username",
   "usernameEmptyErrMsg": "Username is required",
-  "signUpShort": "Sign up"
+  "signUpShort": "Sign up",
+  "directMsgs": "Direct Messages (DM)",
+  "searchUsername": "Search username..."
 }

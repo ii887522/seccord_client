@@ -31,7 +31,6 @@ Page<dynamic> Function(BuildContext, GoRouterState) _pageBuilder(
 }
 
 final router = GoRouter(
-  initialLocation: '/user/login',
   routes: [
     // User module
     GoRoute(
